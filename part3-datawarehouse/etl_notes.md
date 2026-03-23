@@ -14,3 +14,8 @@ Resolution: All category values were converted into one consistent format with p
 Problem: Some rows had missing values in important fields such as product category or revenue, which could affect reporting.
 
 Resolution: Missing values were cleaned by replacing NULL values with correct available data or removing incomplete records before loading into fact_sales.
+
+### Decision 4 - Deduplication of Transacrion Records
+Problem: During the extraction phase from the operational RDBMS, we identified several duplicate transaction IDs caused by system sync errors. If loaded directly, these would artificially inflate the total revenue in our Data Warehouse reports.
+
+Resolution: A deduplication script was implemented during the 'Transform' stage to identify unique sale_id values and keep only the most recent timestamped record, ensuring that our fact_sales table maintains a "single source of truth" for financial reporting.
