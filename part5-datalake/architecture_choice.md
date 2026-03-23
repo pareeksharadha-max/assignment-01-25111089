@@ -1,4 +1,4 @@
-## Architecture Recommendation
+### Architecture Recommendation
 
 I would recommend a Data Lakehouse for the food delivery startup because it combines the advantages of both a Data Lake and a Data Warehouse.
 
